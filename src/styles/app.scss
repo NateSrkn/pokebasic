@@ -1,0 +1,52 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 2rem;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: "VT323", monospace;
+  letter-spacing: 1px;
+
+  .poke-box {
+    display: flex;
+    flex: 1 0 20%;
+    margin: 5px;
+    border: 1px solid black;
+    padding: 10px;
+
+    .info {
+      .name {
+        text-transform: capitalize;
+        font-size: 1rem;
+      }
+
+      .types {
+        list-style: none;
+        display: flex;
+        padding: 10px 0;
+
+        .type {
+          color: white;
+          border-radius: 5px;
+          padding: 4px 6px;
+          margin-right: 4px;
+        }
+      }
+    }
+  }
+
+  .infinite-button {
+    background-color: white;
+    font-family: "VT323", monospace;
+    font-size: 20px;
+  }
+}
