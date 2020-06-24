@@ -87,10 +87,17 @@ const fetchEvolutions = async (list, prevSlice, sliceSize) => {
 let condenseEvolutions = (map, ele) => {
   let evolution_data = ele["chain"];
   let evo_chain = [];
-  do {
-    evo_chain = [...evo_chain, evolution_data];
-    evolution_data = evolution_data["evolves_to"][0];
-  } while (evolution_data && evolution_data.hasOwnProperty("evolves_to"));
+  if (evolution_data["evolves_to"].length > 1) {
+    evolution_data["evolves_to"].map(
+      (evo) => (evo_chain = [...evo_chain, evo])
+    );
+  } else {
+    do {
+      evo_chain = [...evo_chain, evolution_data];
+      evolution_data = evolution_data["evolves_to"][0];
+    } while (evolution_data && evolution_data.hasOwnProperty("evolves_to"));
+  }
+
   map = [...map, evo_chain];
   return map;
 };
